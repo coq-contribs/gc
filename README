@@ -1,0 +1,21 @@
+Abstract: We specify an incremental garbage collection algorithm and we give a formal proof of its correctness. The algorithm is represented as an infinite transition system and we establish safety and liveness properties. This work relies on an axiomatization of LTL and is based on a co-inductive representation of programs executions. Although motivated by integrating the dynamic memory management to the Java Card platform, this study applies more generally to real-time embedded systems and to devices with virtually infinite memory.
+
+
+This work is documented in an article entitled
+  Formal Verification of an Incremental Garbage Collector
+to appear in 
+  the Journal on Logic and Computation
+
+A postcript version can be found at this URL
+http://www.lif.univ-mrs.fr/~solange/publications
+
+Contents 
+card :  axiomatisation of finite sets
+gc: specication of the garbage collector
+lemma-step: properties of transitions
+lib_arith: arithmetic lemmas
+liveness: proof of liveness property
+logique: axiomatization of LTL
+mesure: existence and properties of a measure on the states
+reachable: definition of reachability
+safety: proof of a safety property

@@ -1,0 +1,30 @@
+lemma_add.vo: lemma_add.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_add.vi: lemma_add.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_alloc.vo: lemma_alloc.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_alloc.vi: lemma_alloc.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_call.vo: lemma_call.v ../gc/gc.vo
+lemma_call.vi: lemma_call.v ../gc/gc.vo
+lemma_end.vo: lemma_end.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_end.vi: lemma_end.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_free.vo: lemma_free.v ../gc/gc.vo
+lemma_free.vi: lemma_free.v ../gc/gc.vo
+lemma_free1.vo: lemma_free1.v ../gc/gc.vo
+lemma_free1.vi: lemma_free1.v ../gc/gc.vo
+lemma_mark.vo: lemma_mark.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_mark.vi: lemma_mark.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_remove.vo: lemma_remove.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_remove.vi: lemma_remove.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_step.vo: lemma_step.v ./lemma_add.vo ./lemma_remove.vo ./lemma_alloc.vo ./lemma_call.vo ./lemma_mark.vo ./lemma_stop.vo ./lemma_free.vo ./lemma_free1.vo ./lemma_end.vo
+lemma_step.vi: lemma_step.v ./lemma_add.vo ./lemma_remove.vo ./lemma_alloc.vo ./lemma_call.vo ./lemma_mark.vo ./lemma_stop.vo ./lemma_free.vo ./lemma_free1.vo ./lemma_end.vo
+lemma_stop.vo: lemma_stop.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_stop.vi: lemma_stop.v ../gc/gc.vo ../reachable/reachable.vo
+lemma_add.html: lemma_add.v ../gc/gc.html ../reachable/reachable.html
+lemma_alloc.html: lemma_alloc.v ../gc/gc.html ../reachable/reachable.html
+lemma_call.html: lemma_call.v ../gc/gc.html
+lemma_end.html: lemma_end.v ../gc/gc.html ../reachable/reachable.html
+lemma_free.html: lemma_free.v ../gc/gc.html
+lemma_free1.html: lemma_free1.v ../gc/gc.html
+lemma_mark.html: lemma_mark.v ../gc/gc.html ../reachable/reachable.html
+lemma_remove.html: lemma_remove.v ../gc/gc.html ../reachable/reachable.html
+lemma_step.html: lemma_step.v ./lemma_add.html ./lemma_remove.html ./lemma_alloc.html ./lemma_call.html ./lemma_mark.html ./lemma_stop.html ./lemma_free.html ./lemma_free1.html ./lemma_end.html
+lemma_stop.html: lemma_stop.v ../gc/gc.html ../reachable/reachable.html

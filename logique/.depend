@@ -1,0 +1,6 @@
+LTL.vo: LTL.v
+LTL.vi: LTL.v
+well_founded.vo: well_founded.v ./LTL.vo
+well_founded.vi: well_founded.v ./LTL.vo
+LTL.html: LTL.v
+well_founded.html: well_founded.v ./LTL.html

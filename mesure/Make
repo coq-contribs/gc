@@ -1,0 +1,9 @@
+parameters_card.v white_card.v grey_card.v black_card.v mesure.v safe_card.v unicite_mes.v
+-I ../card 
+-I ../lemma_step
+-I ../gc 
+-I ../lib_arith 
+-I ../safety
+-I ../logique
+-I ../liveness
+-I ../reachable

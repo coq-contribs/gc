@@ -1,0 +1,24 @@
+fairstr.vo: fairstr.v ../mesure/mesure.vo ../safety/safety.vo ../gc/gc.vo ../card/card.vo ../mesure/unicite_mes.vo
+fairstr.vi: fairstr.v ../mesure/mesure.vo ../safety/safety.vo ../gc/gc.vo ../card/card.vo ../mesure/unicite_mes.vo
+liveness.vo: liveness.v ../card/card_facts.vo ../mesure/parameters_card.vo ../mesure/safe_card.vo ./fairstr.vo ./notacc_white_nogrey.vo ./notacc_black_nogrey.vo ./notacc_init.vo ./notacc_white_ancestor.vo ./until_zero.vo ../logique/LTL.vo
+liveness.vi: liveness.v ../card/card_facts.vo ../mesure/parameters_card.vo ../mesure/safe_card.vo ./fairstr.vo ./notacc_white_nogrey.vo ./notacc_black_nogrey.vo ./notacc_init.vo ./notacc_white_ancestor.vo ./until_zero.vo ../logique/LTL.vo
+notacc_black_nogrey.vo: notacc_black_nogrey.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ../mesure/mesure.vo
+notacc_black_nogrey.vi: notacc_black_nogrey.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ../mesure/mesure.vo
+notacc_init.vo: notacc_init.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ../mesure/mesure.vo
+notacc_init.vi: notacc_init.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ../mesure/mesure.vo
+notacc_white_ancestor.vo: notacc_white_ancestor.v ../reachable/reachable.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ./notacc_white_nogrey.vo
+notacc_white_ancestor.vi: notacc_white_ancestor.v ../reachable/reachable.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo ./notacc_white_nogrey.vo
+notacc_white_nogrey.vo: notacc_white_nogrey.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo
+notacc_white_nogrey.vi: notacc_white_nogrey.v ../mesure/parameters_card.vo ../lemma_step/lemma_step.vo ./notfree_notacc.vo
+notfree_notacc.vo: notfree_notacc.v ../gc/gc.vo ../lemma_step/lemma_step.vo ../mesure/parameters_card.vo
+notfree_notacc.vi: notfree_notacc.v ../gc/gc.vo ../lemma_step/lemma_step.vo ../mesure/parameters_card.vo
+until_zero.vo: until_zero.v ../mesure/mesure.vo ../logique/well_founded.vo ../mesure/unicite_mes.vo ./fairstr.vo ../mesure/safe_card.vo
+until_zero.vi: until_zero.v ../mesure/mesure.vo ../logique/well_founded.vo ../mesure/unicite_mes.vo ./fairstr.vo ../mesure/safe_card.vo
+fairstr.html: fairstr.v ../mesure/mesure.html ../safety/safety.html ../gc/gc.html ../card/card.html ../mesure/unicite_mes.html
+liveness.html: liveness.v ../card/card_facts.html ../mesure/parameters_card.html ../mesure/safe_card.html ./fairstr.html ./notacc_white_nogrey.html ./notacc_black_nogrey.html ./notacc_init.html ./notacc_white_ancestor.html ./until_zero.html ../logique/LTL.html
+notacc_black_nogrey.html: notacc_black_nogrey.v ../mesure/parameters_card.html ../lemma_step/lemma_step.html ./notfree_notacc.html ../mesure/mesure.html
+notacc_init.html: notacc_init.v ../mesure/parameters_card.html ../lemma_step/lemma_step.html ./notfree_notacc.html ../mesure/mesure.html
+notacc_white_ancestor.html: notacc_white_ancestor.v ../reachable/reachable.html ../lemma_step/lemma_step.html ./notfree_notacc.html ./notacc_white_nogrey.html
+notacc_white_nogrey.html: notacc_white_nogrey.v ../mesure/parameters_card.html ../lemma_step/lemma_step.html ./notfree_notacc.html
+notfree_notacc.html: notfree_notacc.v ../gc/gc.html ../lemma_step/lemma_step.html ../mesure/parameters_card.html
+until_zero.html: until_zero.v ../mesure/mesure.html ../logique/well_founded.html ../mesure/unicite_mes.html ./fairstr.html ../mesure/safe_card.html
