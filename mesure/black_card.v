@@ -31,26 +31,6 @@ Require Export Ensembles.
 
 Notation Card := (card _ _) (only parsing).
 
-(***
-Lemma init_black:(s:state)
-                 (init_state s)->
-                 (cardinal [n:node](mk s n)=black (1)).
-
-Intros s init;Elim init;Clear init.
-Intros ctls init;Elim init;Clear init.
-Intros mark heap;Elim mark;Clear mark.
-Intros mksrt mark;Elim (exist_updated node color grey (mk s) rt).
-Intros mk' mark';Elim mark';Clear mark'.
-Intros mark' mk'rt;Unfold card_color;Apply card_S with M1:=mk' a0:=rt;Auto.
-Constructor.
-Intro n;Elim (eq_dec_node n rt).
-Intro neqrt;Rewrite neqrt;Rewrite mk'rt;Discriminate.
-Intro ndifrt;Rewrite <- (mark' n ndifrt);Rewrite (mark n ndifrt);Discriminate.
-Symmetry;Apply mark';Assumption.
-Rewrite mk'rt;Discriminate.
-Save.
-***)
-
 Lemma init_black :
  forall s : state, init_state s -> card_color black (mk s) 1.
 
