@@ -1,1 +1,0 @@
-card.v card_facts.v -I ../lib_arith

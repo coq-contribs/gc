@@ -1,9 +1,0 @@
-notfree_notacc.v fairstr.v until_zero.v notacc_white_nogrey.v notacc_black_nogrey.v notacc_white_ancestor.v notacc_init.v liveness.v
--I ../card 
--I ../lemma_step
--I ../gc 
--I ../lib_arith 
--I ../safety
--I ../logique
--I ../mesure
--I ../reachable

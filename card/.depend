@@ -1,6 +1,0 @@
-card.vo: card.v ../lib_arith/lemme_arith.vo
-card.vi: card.v ../lib_arith/lemme_arith.vo
-card_facts.vo: card_facts.v ./card.vo
-card_facts.vi: card_facts.v ./card.vo
-card.html: card.v ../lib_arith/lemme_arith.html
-card_facts.html: card_facts.v ./card.html

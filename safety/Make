@@ -1,9 +1,0 @@
-rtgreyorblack.v sweepnogrey.v noedgeblacktowhite.v accnotfree.v
-nogreyaccnblackn.v safety.v
--I ../card 
--I ../lemma_step
--I ../gc 
--I ../lib_arith 
--I ../logique
--I ../liveness
--I ../reachable

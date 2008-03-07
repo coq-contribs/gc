@@ -1,3 +1,0 @@
-parameters.v gc.v 
--I ../logique
--I ../reachable

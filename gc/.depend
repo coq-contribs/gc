@@ -1,6 +1,0 @@
-gc.vo: gc.v ./parameters.vo ../logique/LTL.vo ../reachable/reachable.vo
-gc.vi: gc.v ./parameters.vo ../logique/LTL.vo ../reachable/reachable.vo
-parameters.vo: parameters.v
-parameters.vi: parameters.v
-gc.html: gc.v ./parameters.html ../logique/LTL.html ../reachable/reachable.html
-parameters.html: parameters.v
