@@ -342,7 +342,7 @@ unfold once_until in |- *; intros str H_always H_fair H_trace;
  eauto.
 unfold leads_to_via in |- *; unfold implies in |- *.
 generalize str H_fair H_always H_trace; clear H_fair H_always H_trace str;
- cofix.
+ cofix once_until_zero.
 unfold fairstr in |- *; unfold infinitely_often in |- *; intro str; case str;
  clear str.
 intros s str H_fair H_always H_trace v; constructor;
@@ -546,7 +546,7 @@ Lemma always_eventually_grey_until_zero_trace :
       (state2stream_formula (fun s : state => card_color grey (mk s) 0))) str.
 
 unfold trace in |- *; unfold fairstr in |- *; unfold infinitely_often in |- *;
- cofix.
+ cofix always_eventually_grey_until_zero_trace.
 intro str; case str; clear str.
 intros s str H_always_sweep H_fair H_trace H_always; constructor; eauto.
 inversion H_always_sweep; inversion H_fair; inversion H_trace;
@@ -604,7 +604,7 @@ Lemma always_eventually_white_until_zero_trace :
    str.
 
 unfold trace in |- *; unfold fairstr in |- *; unfold infinitely_often in |- *;
- cofix.
+ cofix always_eventually_white_until_zero_trace.
 intro str; case str; clear str.
 intros s str H_always_sweep H_fair H_trace H_always; constructor; eauto.
 inversion H_always_sweep; inversion H_fair; inversion H_trace;

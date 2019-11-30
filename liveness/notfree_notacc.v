@@ -197,7 +197,7 @@ Lemma notfree_notacces_unless_isfree :
  trace (fun (a : label) (s t : state) => transition s t a) str ->
  unless (notfree_notacces n) (is_free n) str.
 
-cofix; intros str; case str.
+cofix notfree_notacces_unless_isfree; intros str; case str.
 intros s str'; case str'.
 intros t tl n H_n H_trace; elim (eq_dec_color (mk t n) free); intro mktn.
 constructor 2; auto.
@@ -232,7 +232,7 @@ cut
   notfree_notacces n str ->
   trace (fun (a : label) (s t : state) => transition s t a) str ->
   unless (notfree_notacces n) (is_free n) str); eauto.
-intro unless_notfree_free; cofix.
+intro unless_notfree_free; cofix always_notfree_notacces_unless_isfree.
 intro str; case str.
 intros s tl n H_trace; constructor.
 intro notfree_s.

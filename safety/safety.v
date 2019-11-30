@@ -288,7 +288,7 @@ Lemma implies_safety_prop :
    (state2stream_formula safety_prop) str.
 
 unfold implies in |- *.
-cofix.
+cofix implies_safety_prop.
 intro str; case str.
 intros s tl; constructor; auto.
 unfold state2stream_formula in |- *; simpl in |- *; eauto.

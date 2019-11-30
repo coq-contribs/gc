@@ -230,7 +230,7 @@ unfold safe in |- *; unfold run in |- *; intros F P I H_safe H str str_safe;
  elim str_safe.
 intro h; clear h; cut (always I str); auto.
 clear str_safe; generalize str; clear str H_safe.
-cofix.
+cofix always_on_run.
 intro str; case str; clear str.
 intros s str always_I H_trace always_F; inversion always_I; inversion H_trace;
  inversion always_F; constructor.
@@ -243,7 +243,7 @@ Lemma implies_inf_often :
  (forall str : stream, P str -> Q str) ->
  forall str : stream, infinitely_often P str -> infinitely_often Q str.
 
-unfold infinitely_often in |- *; intros P Q H_P_Q; cofix; intro str; case str;
+unfold infinitely_often in |- *; intros P Q H_P_Q; cofix implies_inf_often; intro str; case str;
  clear str.
 intros s str H_always; constructor;
  [ clear implies_inf_often
@@ -262,7 +262,7 @@ Lemma inv_implies_inf_often :
  forall str : stream,
  always I str -> infinitely_often P str -> infinitely_often Q str.
 
-unfold infinitely_often in |- *; intros P Q I H_P_Q; cofix; intro str;
+unfold infinitely_often in |- *; intros P Q I H_P_Q; cofix inv_implies_inf_often; intro str;
  case str; clear str.
 intros s str H_always_I H_always_ev; constructor;
  [ clear inv_implies_inf_often
@@ -323,7 +323,7 @@ Lemma always_one_step_leads_to :
    (state2stream_formula Q) str.
 
 unfold leads_to_via in |- *; unfold implies in |- *;
- intros P Q H_enabled leads_P_Q; cofix.
+ intros P Q H_enabled leads_P_Q; cofix always_one_step_leads_to.
 intro str; case str; intros s str'; case str'.
 intros t tl H_trace H_fair; constructor; eauto.
 inversion_clear H_trace; inversion_clear H_fair;
@@ -371,7 +371,7 @@ Lemma leadsto_tx_l_or :
  leads_to_via (fun str : stream => A str \/ C str)
    (fun str : stream => B str \/ D str) E str.
 
-intros A B C D E; cofix.
+intros A B C D E; cofix leadsto_tx_l_or.
 intro str; case str; clear str.
 intros s str H1 H2; constructor.
 intro H; elim H; clear H.
@@ -408,7 +408,7 @@ Lemma ltv_equiv_ltv :
  forall str : stream, leads_to_via A A C str -> leads_to_via B B C str.
 
 unfold leads_to_via in |- *; unfold implies in |- *; intros A B C H_A_B H_B_A;
- cofix.
+ cofix ltv_equiv_ltv.
 intro str; case str; clear str.
 intros s str ltv_AAC; constructor;
  [ clear ltv_equiv_ltv; intro H_B; inversion ltv_AAC; eauto
@@ -440,7 +440,7 @@ Lemma induct :
  forall str : stream,
  trace str -> P (head_str str) -> always (state2stream_formula P) str.
 
-intros P Inv; unfold state2stream_formula in |- *; cofix; intro str; case str;
+intros P Inv; unfold state2stream_formula in |- *; cofix induct; intro str; case str;
  simpl in |- *.
 intros h tl Htrace Hhead; constructor; try assumption.
 apply induct; clear induct.
@@ -455,7 +455,7 @@ Lemma always_P :
  (forall str : stream, trace str -> P str) ->
  forall str : stream, trace str -> always P str.
 
-cofix.
+cofix always_P.
 intros P H_P str; case str.
 intros s tl trace_; constructor.
 apply H_P; assumption.
@@ -480,7 +480,7 @@ Lemma always_implies_always :
  implies (state2stream_formula P) (state2stream_formula Q) str ->
  always (state2stream_formula Q) str.
 
-cofix.
+cofix always_implies_always.
 intros P Q str; case str.
 intros s tl alw_P imp_P_Q; constructor.
 unfold implies in imp_P_Q; inversion imp_P_Q; apply H1; inversion alw_P;
@@ -508,7 +508,7 @@ Lemma always_implies_always_stream :
  forall (P Q : stream_formula) (str : stream),
  always P str -> implies P Q str -> always Q str.
 
-cofix.
+cofix always_implies_always_stream.
 intros P Q str; case str.
 intros s tl alw_P imp_P_Q; constructor.
 unfold implies in imp_P_Q; inversion imp_P_Q; apply H1; inversion alw_P;
@@ -535,7 +535,7 @@ Lemma always_always :
  (forall str : stream, always Q str -> P str) ->
  forall str : stream, always Q str -> always P str.
 
-intros P Q; cofix.
+intros P Q; cofix always_always.
 intros H_Q_P str; case str.
 intros s tl always_Q; constructor.
 apply H_Q_P; assumption.
@@ -568,7 +568,7 @@ Lemma always_imp_always :
  forall (P Q : stream_formula) (str : stream),
  always P str -> (forall str : stream, P str -> Q str) -> always Q str.
 
-intros P Q; cofix.
+intros P Q; cofix always_imp_always.
 intro str; case str.
 intros s tl always_P_ H_P_Q; constructor.
 apply H_P_Q; inversion always_P_; assumption.
@@ -583,7 +583,7 @@ Lemma always_always_implies_always :
  always Q str ->
  (forall str : stream, P str -> Q str -> R str) -> always R str.
 
-intros P Q R; cofix.
+intros P Q R; cofix always_always_implies_always.
 intro str; case str.
 intros s tl always_P_ always_Q H_P_Q_R; constructor.
 apply H_P_Q_R.
@@ -600,7 +600,7 @@ Lemma always_implies_always_state :
  always (state2stream_formula Q) str ->
  (forall s : state, P s -> Q s -> R s) -> always (state2stream_formula R) str.
 
-intros P Q R; cofix.
+intros P Q R; cofix always_implies_always_state.
 intro str; case str.
 intros s tl always_P_ always_Q H_P_Q_R; constructor.
 unfold state2stream_formula in |- *; simpl in |- *; apply H_P_Q_R.
@@ -626,7 +626,7 @@ Lemma always_and :
  forall (P Q : stream_formula) (str : stream),
  always (and P Q) str -> always P str.
 
-intros P Q; cofix; intro str; case str.
+intros P Q; cofix always_and; intro str; case str.
 intros s tl always_P_Q.
 constructor.
 inversion always_P_Q.
@@ -641,7 +641,7 @@ Lemma and_always_state :
  always (state2stream_formula (and_state P Q)) str ->
  always (state2stream_formula P) str.
 
-intros P Q; cofix; intro str; case str.
+intros P Q; cofix and_always_state; intro str; case str.
 intros s tl always_P_Q.
 constructor.
 unfold state2stream_formula in |- *; simpl in |- *; inversion always_P_Q.
@@ -655,7 +655,7 @@ Lemma always_and_bis :
  forall (P Q : stream_formula) (str : stream),
  always (and P Q) str -> always Q str.
 
-intros P Q; cofix; intro str; case str.
+intros P Q; cofix always_and_bis; intro str; case str.
 intros s tl always_P_Q.
 constructor.
 inversion always_P_Q.
@@ -682,7 +682,7 @@ Lemma always_and_and :
  forall (P Q R : stream_formula) (str : stream),
  always (and P (and Q R)) str -> always R str.
 
-intros P Q R; cofix; intro str; case str.
+intros P Q R; cofix always_and_and; intro str; case str.
 intros s tl always_P_Q_R; constructor.
 inversion always_P_Q_R.
 elim H1; clear H1.
@@ -697,7 +697,7 @@ Lemma always_unless :
  forall str : stream,
  trace str -> always (fun str : stream => P str -> unless P Q str) str.
 
-intros P Q unless_P_Q; cofix.
+intros P Q unless_P_Q; cofix always_unless.
 intro str; case str.
 intros s tl H_trace; constructor.
 intro P_str; apply unless_P_Q; assumption.
